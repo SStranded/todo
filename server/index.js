@@ -53,13 +53,22 @@ socketIO.on('connection', (socket) => {
   });
 
   socket.on('completeTodo', (todo) => {
-    for (let i = 0; i < todoList.length; i++) {
-      if (todoList[i].id === todo.id) {
-        todoList[i].completed = !todoList[i].completed;
+    let user = todo.user;
+    let userId = todo.userId;
+    const usersTodos = todoList.filter((todo) => {
+      if (user === todo.user && userId === todo.userId) {
+        return true;
+      }
+      return false;
+    });
+
+    for (let i = 0; i < usersTodos.length; i++) {
+      if (usersTodos[i].id === todo.id) {
+        usersTodos[i].completed = !usersTodos[i].completed;
       }
     }
 
-    socket.emit('todos', todoList);
+    socket.emit('todos', usersTodos);
   });
 
   socket.on('deleteTodo', (todo) => {
