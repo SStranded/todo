@@ -52,7 +52,7 @@ body {
   align-items: center;
   width: 100%;
   min-height: 10vh;
-  margin: 6vh 0 3vh 0;
+  margin: 6vh 0 1vh 0;
   padding: 0 10vw 0 10vw;
 }
 
@@ -64,11 +64,11 @@ body {
 
 .form_btn,
 .home_form > button {
-  width: 140px;
+  width: 120px;
   cursor: pointer;
   padding: 10px;
   height: 45px;
-  font-size: 14px;
+  font-size: 12px;
   background-color: #2b65b1;
   color: #f6fcff;
   border: none;
@@ -78,11 +78,16 @@ body {
 
 .filters {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 1vh;
   padding: 0 10vw 0 10vw;
+}
+
+.filters > button {
+  margin: 0 1vw 1vh 1vw;
 }
 
 .filters > button:hover {
@@ -201,6 +206,14 @@ body {
   margin-bottom: 30px;
 }
 
+@media screen and (min-width: 459px) {
+  .filters {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0vh 10vw 5vh 10vw;
+  }
+}
+
 @media screen and (min-width: 600px) {
   .form {
     flex-direction: row;
@@ -221,6 +234,8 @@ body {
   }
 
   .filters {
+    flex-direction: row;
+    flex-wrap: nowrap;
     padding: 0vh 10vw 5vh 10vw;
   }
 
